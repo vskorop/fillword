@@ -1,8 +1,8 @@
 <h3>Задача: <h4>Реализовать механику игры филворд:</h4></h3>
 
 <h3> Deploy: </h3>
-https://fillword-test-lhgb3uzi4-vskorop.vercel.app/
-
+<a href="https://fillword-test-lhgb3uzi4-vskorop.vercel.app/"> (╮°-°)╮┳━━┳ ( ╯°□°)╯ ┻━━┻</a>
+<hr/>
 <ul>
   Создать алгоритм генерации филворда с размерами:
   <ul>
