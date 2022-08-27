@@ -1,13 +1,15 @@
-import styled, { createGlobalStyle, css } from "styled-components";
-import GameProvider from "../providers/GameProvider";
-import Button from "./Buttons";
-import GameArea from "./GameArea";
-import { Routes, Route } from 'react-router-dom';
+/* eslint-disable no-tabs */
+import styled, { createGlobalStyle, css } from 'styled-components';
+import { useEffect } from 'react';
+import GameProvider from '../providers/GameProvider';
+import GameArea from './GameArea';
+import { useLocalStorage } from '../hooks/hooks';
+import TopBar from './TopBar';
 
 const GlobalStyle = createGlobalStyle`
 	/* colors */
 	:root {
-		${props => props.darkMode ? css`
+		${(props) => (props.darkMode ? css`
 			--clr-background: #111;
 			--clr-primary: #59a9ff;
 			--clr-square: #303030;
@@ -22,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
 			--clr-border: #ddd;
 			--clr-text: #444;
 			--clr-overlay: rgba(0, 0, 0, 0.5);
-		`}
+		`)}
 	}
 	/* misc */
 	body {
@@ -65,24 +67,29 @@ const GlobalStyle = createGlobalStyle`
 			font-size: 32px;
 		}
 	}
-`
+`;
 const StyledApp = styled.div`
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-`
-const App = () => {
-	return (
-		<>
-       	<GlobalStyle/>
-			<StyledApp>
-				<GameProvider>
-					<GameArea/>
-				</GameProvider>	
-			</StyledApp>
-		</>
-	);
+`;
+function App() {
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
+  const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);
+  return (
+    <>
+      <GlobalStyle />
+      <StyledApp>
+        <GameProvider>
+          <TopBar darkMode={darkMode} setDarkMode={setDarkMode} />
+          <GameArea />
+        </GameProvider>
+      </StyledApp>
+    </>
+  );
 }
 
 export default App;

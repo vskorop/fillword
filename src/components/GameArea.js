@@ -1,9 +1,10 @@
-import styled from "styled-components";
-import Board from "./Board";
-import Button from "./Buttons";
-import CongratulationsScreen from "./CongratulationsScreen";
-import WordInfo from "./WordInfo";
-
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { useLocalStorageRef } from '../hooks/hooks';
+import Board from './Board';
+import CongratulationsScreen from './CongratulationsScreen';
+import Popup from './Popup';
+import WordInfo from './WordInfo';
 
 const StyledGameArea = styled.div`
     width: 100%;
@@ -12,7 +13,7 @@ const StyledGameArea = styled.div`
     padding: 0.75rem;
     display: flex;
     flex-direction: column;
-`
+`;
 
 const BoardArea = styled.div`
     width: 100%;
@@ -21,21 +22,22 @@ const BoardArea = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 0.5rem;
-`
+`;
 
-const GameArea = () => {
-    return (
-        <>
-            <StyledGameArea>
-                <BoardArea>
-                    <WordInfo/>
-                    <Button/>
-                    <Board/>
-                </BoardArea>
-            </StyledGameArea>
-                <CongratulationsScreen/>
-        </>
-    );
+function GameArea() {
+  const words = useSelector((store) => store.arr);
+  return (
+    <>
+      <StyledGameArea>
+        <BoardArea>
+          <WordInfo />
+          <Board />
+        </BoardArea>
+      </StyledGameArea>
+      { words.includes('МОРЖ') && words.includes('ОГУРЕЦ') && words.includes('АЗБУКА') ? <CongratulationsScreen /> : null}
+      { words.includes('МЕНЮ') && words.includes('УКСУС') ? <CongratulationsScreen /> : null}
+    </>
+  );
 }
 
 export default GameArea;

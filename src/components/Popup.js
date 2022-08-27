@@ -1,6 +1,6 @@
-import useTransition from "react-transition-state";
-import styled from "styled-components";
-import CloseIcon from "../icons/CloseIcon";
+import useTransition from 'react-transition-state';
+import styled from 'styled-components';
+import CloseIcon from '../icons/CloseIcon';
 
 const Background = styled.div`
     position: absolute;
@@ -16,10 +16,10 @@ const Background = styled.div`
     align-items: flex-end;
 
     transition: opacity 300ms ease-in-out;
-    ${props => ((props.state === "preEnter" || props.state === "exiting") && `
+    ${(props) => ((props.state === 'preEnter' || props.state === 'exiting') && `
         opacity: 0;
     `)}
-`
+`;
 
 const StyledPopup = styled.div`
     background-color: var(--clr-background);
@@ -34,10 +34,10 @@ const StyledPopup = styled.div`
     padding: 1rem 1rem 0 1rem;
 
     transition: transform 300ms ease-in-out;
-    ${props => ((props.state === "preEnter" || props.state === "exiting") && `
+    ${(props) => ((props.state === 'preEnter' || props.state === 'exiting') && `
         transform: translateY(100%);
     `)}
-`
+`;
 
 const CloseButton = styled.button`
     background-color: transparent;
@@ -46,37 +46,35 @@ const CloseButton = styled.button`
     width: 0.875rem;
     padding: 0;
     cursor: pointer;
-`
+`;
 
 const Content = styled.div`
     width: 100%;
     flex: 1;
     overflow: auto;
-`
+`;
 
-const Popup = ({children, state, close}) => {
-    return state === "unmounted" ? null : (
-        <Background state={state}>
-            <StyledPopup state={state}>
-                <CloseButton onClick={close}>
-                    <CloseIcon/>
-                </CloseButton>
-                <Content>
-                    {children}
-                </Content>
-            </StyledPopup>
-        </Background>
-    );
+function Popup({ children, state, close }) {
+  return state === 'unmounted' ? null : (
+    <Background state={state}>
+      <StyledPopup state={state}>
+        <CloseButton onClick={close}>
+          <CloseIcon />
+        </CloseButton>
+        <Content>
+          {children}
+        </Content>
+      </StyledPopup>
+    </Background>
+  );
 }
 
-const usePopupTransition = () => {
-    return useTransition({
-        timeout: 300,
-        mountOnEnter: true,
-        unmountOnExit: true,
-        preEnter: true
-    });
-}
+const usePopupTransition = () => useTransition({
+  timeout: 300,
+  mountOnEnter: true,
+  unmountOnExit: true,
+  preEnter: true
+});
 
 export default Popup;
 export { usePopupTransition };
