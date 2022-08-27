@@ -39,13 +39,11 @@ export default function Button() {
       >
         4х4
       </But>
-
       <But
         type="button"
         onClick={repeat}
       >
         Заново
-
       </But>
     </div>
   );

@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import { useLocalStorageRef } from '../hooks/hooks';
 import Board from './Board';
 import CongratulationsScreen from './CongratulationsScreen';
-import Popup from './Popup';
 import WordInfo from './WordInfo';
 
 const StyledGameArea = styled.div`

@@ -53,7 +53,6 @@ function GameProvider({ children }) {
     return () => window.removeEventListener('mouseup', handleMouseUp);
   }, []);
 
-  // handle the word info popup
   useEffect(() => {
     if (wordInfo === null) return;
     const timeout = setTimeout(() => setWordInfo(null), 1500);
@@ -61,7 +60,6 @@ function GameProvider({ children }) {
     return () => clearTimeout(timeout);
   }, [wordInfoTrigger]);
 
-  // allow a square to retrieve its necessary information
   const getSquareInfo = (x, y) => {
     let active = false;
     let lineDirection = null;
@@ -124,7 +122,6 @@ function GameProvider({ children }) {
       squareClicked,
       squareEntered,
       submitWord,
-      // foundWords,
       wordInfo,
     }}
     >

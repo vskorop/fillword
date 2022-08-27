@@ -46,7 +46,6 @@ function Square({ x, y }) {
     return () => window.removeEventListener('resize', calcFontSize);
   }, []);
 
-  // handle mouse events
   const handleMouseDown = (e) => {
     if (e.button !== 0) return;
     squareClicked(x, y);
@@ -56,7 +55,6 @@ function Square({ x, y }) {
     squareEntered(x, y);
   };
 
-  // convert touch events into mouse events
   const handleTouchStart = (e) => {
     const touch = e.changedTouches[0];
     const simulatedEvent = new MouseEvent('mousedown', {

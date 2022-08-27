@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import Button from './Buttons';
-import Popup, { usePopupTransition } from './Popup';
 
 const StyledTopBar = styled.div`
     width: 100%;
@@ -30,18 +29,6 @@ const Buttons = styled.button`
 `;
 
 function TopBar({ darkMode, setDarkMode }) {
-  const [helpState, toggleHelp] = usePopupTransition();
-  const [yesterdayState, toggleYesterday] = usePopupTransition();
-  const [shareState, toggleShare] = usePopupTransition();
-
-  useEffect(() => {
-    const visitedFlag = window.localStorage.getItem('visitedFlag');
-    if (!visitedFlag) {
-      toggleHelp(true);
-      window.localStorage.setItem('visitedFlag', 1);
-    }
-  }, [toggleHelp]);
-
   return (
     <StyledTopBar>
       <Title>fillword_test</Title>
