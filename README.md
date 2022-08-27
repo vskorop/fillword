@@ -1,6 +1,14 @@
 
-<h3> Deploy: <a href="https://fillword-test-lhgb3uzi4-vskorop.vercel.app/"> (╮°-°)╮┳━━┳ ( ╯°□°)╯ ┻━━┻</a>
+<h3> Deploy: <a href="https://fillword-test-lhgb3uzi4-vskorop.vercel.app/"> (╮°-°)╮┳━━┳ ( ╯°□°)╯ ┻━━┻</a></h3>
+
 <hr/>
+
+```
+Установка: 
+npm i
+npm start
+```
+
 <h3>Задача: <h4>Реализовать механику игры филворд:</h4></h3>
 
 </h3>
@@ -26,5 +34,9 @@ https://skr.sh/vFZLa9KWX2G?a</li>
 <hr/>
 <h2>Стек технологий:</h2>
 JS, React, React Router, Redux, SCSS
+
+
+
+
 <h3>Пример работы:</h3>
 <img src="https://github.com/vskorop/fillword/blob/main/public/example.gif"/>
