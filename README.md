@@ -19,3 +19,4 @@ https://skr.sh/vFZLa9KWX2G?a</li>
 <h2>Стек технологий:</h2>
 JS, React, React Router, Redux, SCSS
 <h3>Пример работы:</h3>
+<img src="https://github.com/vskorop/fillword/blob/main/public/example.gif"/>
