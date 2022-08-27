@@ -1,9 +1,3 @@
-// let wordsList = [
-//   'МОРЖ',
-//   'РУГО',
-//   'ЕЦАЗ',
-//   'АКУБ'
-// ];
 const list = (arr, n) => {
   const res = [];
   return arr.join('')
@@ -25,9 +19,4 @@ const list2 = (arr, n) => {
 const wordsList = list(['МОРЖ', 'ОГУРЕЦ', 'АЗБУКА'], 4);
 const wordsList2 = list2(['МЕНЮ', 'УКСУС'], 3);
 
-// const wordsList2 = [
-//   'МЕН',
-//   'КУЮ',
-//   'СУС',
-// ];
 export { wordsList, wordsList2 };
