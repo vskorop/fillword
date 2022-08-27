@@ -5,5 +5,9 @@ const wordsList = [
 	'АКУБ'
 
 ];
-
-export default wordsList;
+const wordsList2 = [
+	"МЕН",
+	"КУЮ",
+	"СУС", 
+]
+export {wordsList, wordsList2};

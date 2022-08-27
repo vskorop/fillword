@@ -1,7 +1,8 @@
 import styled, { createGlobalStyle, css } from "styled-components";
 import GameProvider from "../providers/GameProvider";
+import Button from "./Buttons";
 import GameArea from "./GameArea";
-
+import { Routes, Route } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
 	/* colors */
@@ -74,7 +75,7 @@ const StyledApp = styled.div`
 const App = () => {
 	return (
 		<>
-			<GlobalStyle/>
+       	<GlobalStyle/>
 			<StyledApp>
 				<GameProvider>
 					<GameArea/>

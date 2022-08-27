@@ -1,11 +1,12 @@
-import { createContext, useContext, useEffect, useState, useMemo } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useStateTrigger, useStateRef, useLocalStorageRef } from "../hooks/hooks";
-import { minWordLength, generateTodaysBoard } from "../utils/utils";
-
+import { minWordLength } from "../utils/utils";
+import { useSelector } from 'react-redux';
+import { wordsList, wordsList2 } from "../utils/wordsList";
 const GameContext = createContext();
 
 const GameProvider = ({children}) => {
-
+    const size = useSelector((store) => store.word);
     // state
     // anything accessed from the 'mouseup' event handler needs to use a ref
     const [currentWord, currentWordRef, setCurrentWord] = useStateRef("");
@@ -13,19 +14,19 @@ const GameProvider = ({children}) => {
     const [wordActive, setWordActive] = useState(false);
     const [path, setPath] = useState([]);
     const [wordInfo, wordInfoTrigger, setWordInfo] = useStateTrigger(null);
-
-    const board = useMemo(() => generateTodaysBoard(), []);
+    // const board = useMemo(() => generateTodaysBoard(), []);
+    const board = (size === 4)? (wordsList): (wordsList2)
     const submitWord = () => {
-        const wordsList = ["МОРЖ","ОГУРЕЦ", "АЗБУКА"];
+        const words =(size===4)? ["МОРЖ","ОГУРЕЦ", "АЗБУКА"]: ["МЕНЮ", "УКСУС"];
         const newWord = currentWordRef.current;
         if (!newWord) return;
         if (newWord.length === 1)
             setWordInfo(null);
         else if (newWord.length < minWordLength)
             setWordInfo("слишком короткое слово");
-        else if (foundWordsRef.current.includes(newWord))
+        else if (words.includes(newWord))
             setWordInfo("уже есть такое слово");
-        else if (!wordsList.includes(newWord))
+        else if (!words.includes(newWord))
             setWordInfo("нет такого слова");
         else {
             const foundWordsCopy = [...foundWordsRef.current];
@@ -101,7 +102,6 @@ const GameProvider = ({children}) => {
 
     // updating current word
     const squareClicked = (x, y) => {
-        // if (wordActive) return;
         setWordActive(true);
         addToPath(x, y);
     }

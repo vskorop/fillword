@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Board from "./Board";
+import Button from "./Buttons";
 import CongratulationsScreen from "./CongratulationsScreen";
 import WordInfo from "./WordInfo";
 
@@ -28,6 +29,7 @@ const GameArea = () => {
             <StyledGameArea>
                 <BoardArea>
                     <WordInfo/>
+                    <Button/>
                     <Board/>
                 </BoardArea>
             </StyledGameArea>

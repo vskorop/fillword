@@ -26,7 +26,7 @@ const Inner = styled.div.attrs(props => ({
     user-select: none;
 `
 const Square = ({x, y}) => {
-
+    
     const [fontSize, setFontSize] = useState(0);
     const squareRef = useRef(null);
     
@@ -78,7 +78,6 @@ const Square = ({x, y}) => {
             element.dispatchEvent(simulatedEvent);
         }
     }
-
     return (
         <StyledSquare
             ref={squareRef}

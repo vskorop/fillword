@@ -1,8 +1,7 @@
-import wordsList from "./wordsList";
+import {wordsList, wordsList2} from "./wordsList";
 
 const boardSize = 4;
-
-const minWordLength = 4;
+const minWordLength = 3;
 
 const generateTodaysBoard = () => {
     const board = wordsList;
